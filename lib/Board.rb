@@ -3,7 +3,6 @@ require_relative 'player'
 class Board
   attr_accessor :spot, :player
 
-
   def initialize(num_rows_and_columns = 10)
     @board = []
     num_rows_and_columns.times do
@@ -52,7 +51,6 @@ class Board
     else
         @board[0][col_index].spot = player
     end
-
   end
 
   def empty?

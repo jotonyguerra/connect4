@@ -1,14 +1,18 @@
+require_relative "board"
 require_relative "player"
+
 class BoardSpace
-  attr_accessor :spot
+  attr_accessor :spot, :player
 
   def initialize(spot = nil)
     @spot = spot
   end
 
   def printspace
+    #need to print a readable board then add player character following add turn 
     if @spot
-      " #{@spot.player} "
+      #how to get this to print out a readable board and then add player piece?
+      " #{@spot.player} " #unless @player.nil?} "
     else
       "  "
     end
@@ -17,15 +21,6 @@ class BoardSpace
   def occupied?
     !@player.nil?
   end
-
-
-  # def empty?
-  #   if mark.spot.nil?
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
 
 
 end
