@@ -20,13 +20,12 @@ puts board.printboard
 player = [player1, player2].shuffle
 turn_index = 0
 
-binding.pry
  while board.empty?  && board.winner? == false
    current_player = player[turn_index]
    puts "It is #{current_player.name}'s turn."
    puts "What column do you want to play?"
    place_space = gets.chomp.to_i
-
+  #  binding.pry
    board.add_turn(current_player.player, place_space)
    puts board.printboard
    turn_index = turn_index == 0 ? 1 : 0

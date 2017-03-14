@@ -1,6 +1,6 @@
 require_relative "board"
 require_relative "player"
-
+require 'pry'
 class BoardSpace
   attr_accessor :spot, :player
 
@@ -9,10 +9,14 @@ class BoardSpace
   end
 
   def printspace
-    #need to print a readable board then add player character following add turn 
+    #need to print a readable board then add player character following add turn
     if @spot
-      #how to get this to print out a readable board and then add player piece?
-      " #{@spot.player} " #unless @player.nil?} "
+      # binding.pry
+      if @spot == nil
+        " #{@spot} " #unless @player.nil?} "
+      else
+        "#{@spot} "
+      end
     else
       "  "
     end

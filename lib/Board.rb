@@ -14,9 +14,6 @@ class Board
     end
   end
 
-  def rows
-    @board
-  end
 
   def printboard
     board_print = ""
@@ -34,11 +31,23 @@ class Board
 
   def add_turn(player, col_index)
     if
-      !@board[5][col_index].occupied?
-      @board[5][col_index].spot = player
+      !@board[9][col_index].occupied?
+      @board[9][col_index].spot = player
+    elsif
+      @board[9][col_index].occupied? && !@board[8][col_index].empty?
+      @board[8][col_index].spot = player
+    elsif
+      @board[8][col_index].occupied? && !@board[7][col_index].empty?
+        @board[7][col_index].spot = player
+    elsif
+      @board[7][col_index].occupied? && !@board[6][col_index].empty?
+        @board[6][col_index].spot = player
+    elsif
+      @board[6][col_index].occupied? && !@board[5][col_index].empty?
+        @board[5][col_index].spot = player
     elsif
       @board[5][col_index].occupied? && !@board[4][col_index].empty?
-      @board[4][col_index].spot = player
+        @board[4][col_index].spot = player
     elsif
       @board[4][col_index].occupied? && !@board[3][col_index].empty?
         @board[3][col_index].spot = player
@@ -47,7 +56,7 @@ class Board
         @board[2][col_index].spot = player
     elsif
       @board[2][col_index].occupied? && !@board[1][col_index].empty?
-        @board[1][col_index].spot = player
+        @board[1][col_index].spot = player     
     else
         @board[0][col_index].spot = player
     end
