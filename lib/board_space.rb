@@ -9,21 +9,15 @@ class BoardSpace
   end
 
   def printspace
-    #need to print a readable board then add player character following add turn
     if @spot
-      # binding.pry
-      if @spot == nil
-        " #{@spot} " #unless @player.nil?} "
-      else
-        "#{@spot} "
-      end
+      "#{@spot} "
     else
       "  "
     end
   end
 
   def occupied?
-    !@player.nil?
+    !@spot.nil?
   end
 
 

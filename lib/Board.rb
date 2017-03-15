@@ -1,5 +1,6 @@
 require_relative 'board_space'
 require_relative 'player'
+
 class Board
   attr_accessor :spot, :player
 
@@ -30,52 +31,36 @@ class Board
   end
 
   def add_turn(player, col_index)
-    if
-      !@board[9][col_index].occupied?
+    if !@board[9][col_index].occupied?
       @board[9][col_index].spot = player
-    elsif
-      @board[9][col_index].occupied? && !@board[8][col_index].empty?
+    elsif @board[9][col_index].occupied? && !@board[8][col_index].occupied?
       @board[8][col_index].spot = player
-    elsif
-      @board[8][col_index].occupied? && !@board[7][col_index].empty?
+    elsif @board[8][col_index].occupied? && !@board[7][col_index].occupied?
         @board[7][col_index].spot = player
-    elsif
-      @board[7][col_index].occupied? && !@board[6][col_index].empty?
+    elsif @board[7][col_index].occupied? && !@board[6][col_index].occupied?
         @board[6][col_index].spot = player
-    elsif
-      @board[6][col_index].occupied? && !@board[5][col_index].empty?
+    elsif @board[6][col_index].occupied? && !@board[5][col_index].occupied?
         @board[5][col_index].spot = player
-    elsif
-      @board[5][col_index].occupied? && !@board[4][col_index].empty?
+    elsif @board[5][col_index].occupied? && !@board[4][col_index].occupied?
         @board[4][col_index].spot = player
-    elsif
-      @board[4][col_index].occupied? && !@board[3][col_index].empty?
+    elsif @board[4][col_index].occupied? && !@board[3][col_index].occupied?
         @board[3][col_index].spot = player
-    elsif
-      @board[3][col_index].occupied? && !@board[2][col_index].empty?
+    elsif @board[3][col_index].occupied? && !@board[2][col_index].occupied?
         @board[2][col_index].spot = player
-    elsif
-      @board[2][col_index].occupied? && !@board[1][col_index].empty?
-        @board[1][col_index].spot = player     
+    elsif @board[2][col_index].occupied? && !@board[1][col_index].occupied?
+        @board[1][col_index].spot = player
+    elsif @board[0][col_index].occupied?
+      puts "column is full please try a different column"
     else
         @board[0][col_index].spot = player
     end
   end
 
-  def empty?
-    @board.each do |row|
-      row.each do |space|
-        if space.spot.nil?
-          return true
-        else
-          return false
-        end
-      end
-    end
-  end
 
   def winner?
+    #how to determine winner? verticle and horizon
     false
+
   end
 
 end
