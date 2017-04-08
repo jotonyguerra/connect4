@@ -20,7 +20,7 @@ puts board.printboard
 player = [player1, player2].shuffle
 turn_index = 0
 
- until board.winner? == true
+ while !board.winner?
    ## how to get add_turn to place new marker on space above previous played space?
    current_player = player[turn_index]
    puts "It is #{current_player.name}'s turn."
@@ -30,5 +30,9 @@ turn_index = 0
    puts board.printboard
    turn_index = turn_index == 0 ? 1 : 0
 
-
+   if  board.winner? && player[turn_index]
+     puts "#{current_player.name} wins!"
+   elsif player[turn_index] && board.winner?
+     puts "#{current_player.name} wins!"
+   end
  end
